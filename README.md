@@ -1,2 +1,2 @@
-# deep_learning
-Exploring the domain of Deep Learning
+# Exploring Deep learning
+Learning the basic algorithms in deep learning (while doing academic projects)

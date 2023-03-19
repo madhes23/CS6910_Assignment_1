@@ -398,9 +398,9 @@ class Classification:
     ax1.plot(x, training_errors, label = "Training Error")
     ax1.plot(x, validation_errors, label = "Validation Error")
     ax1.set_title("Errors")
-    ax1.legend()
+    ax1.legend(fontsize= 'small', loc='upper right')
     ax2.plot(x, training_accuracy, label = "Training Accuracy")
     ax2.plot(x, validation_accuracy, label = "Validation Accuracy")
     ax2.set_title("Accuracy")
-    ax2.legend()
+    ax2.legend(fontsize = 'small',loc='upper right')
     return fig

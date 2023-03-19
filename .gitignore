@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#for running some simple python code, to cross verify
+temp*
+
+#for wandb local
+wandb/*

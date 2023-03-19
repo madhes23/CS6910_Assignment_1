@@ -51,9 +51,7 @@ def activation_function(a, func):
   -------
   Post activation values in ndarray of the same dimention
   """
-  if(func == ActivationFunction.SIGMOID):   
-    # clipping_limit = 400
-    # return 1.0 / (1.0 + np.exp(-np.clip(a,-clipping_limit,clipping_limit)))
+  if(func == ActivationFunction.SIGMOID):  
     new = a.copy()
     new[a<0] = np.exp(a[a<0])/(1.0 + np.exp(a[a<0]))
     new[a>=0] = 1/(1+np.exp(-a[a>=0]))
@@ -98,18 +96,16 @@ def df_activation_function(a, func):
     return np.ones(shape=a.shape)
 
 
-
 def output_function(a, func):
   """
   Given the pre-activation values, returns post activation values of the output layer
   """
   if(func == OutputFunction.SOFTMAX): 
-    # a = a - np.max(a)
-    # return np.exp(a) / np.sum(np.exp(a), axis=1, keepdims=True)
-    num = np.exp(a - ((np.ones(shape=(a.shape[1],a.shape[0]))* (np.max(a,axis=1))).transpose()))
-    den = ((np.ones(shape=(a.shape[1],a.shape[0]))* (1/(np.sum(num,axis=1)))).transpose())
-    return np.multiply(num,den)
-
+    ones_array = np.ones((a.shape[1],a.shape[0]))
+    numerator = np.exp(a - (ones_array * a.max(axis=1)).T)
+    denominator = 1/numerator.sum(axis = 1) * ones_array 
+    return denominator.T * numerator
+  
 
 def calc_total_error(predicted_distribution, true_label, method, weight_decay_for_l2_reg, weights):
   """Calculates the total error based on the error calculation method

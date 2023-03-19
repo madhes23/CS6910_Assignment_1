@@ -17,8 +17,7 @@ x_test = x_test.reshape(-1, no_of_pixels)/255
 x_validation = x_validation.reshape(-1, no_of_pixels)/255
 
 
-#TODO: Remove the keys from login before sharing
-wandb.login(key = "39e4e3cb3e968e93d443865e4c84210177e9ada5")
+wandb.login()
 sweep_config = {
     "method": 'random',
     "metric": {

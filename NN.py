@@ -1,3 +1,7 @@
+"""
+A simple feed-forward Neural Network capable of classifying a given input (single dimentional) to a set of classes
+"""
+
 from Utils import *
 import math
 import numpy as np
@@ -5,6 +9,10 @@ import matplotlib.pyplot as plt
 
 
 class Classification:
+  """
+  A simple feed-forward Neural Network capable of classifying a given input (single dimentional) to a set of classes
+  """
+
   weight = []
   bias = []
   
@@ -35,6 +43,24 @@ class Classification:
 
 
   def init_weight_and_bias(self):
+    """
+    Initiates the weights and bias matrices for the NN based on the initialization method specified.
+    
+    NOTE: A common convention is the 0-th index is some random value of shape (1,1), so we can follow the 
+    1-based indexing taught in the class
+
+    Example:
+    ------
+    1. Let the input layer = 784 neurons
+    2. One hidden layer with 32 neurons
+    3. Output layer has 10 neurons 
+
+    Weight matrix shape is as follows:
+    w[0] = (1,1) - some random number (refer NOTE)
+    w[1] = (32, 784)
+    w[2] = (10, 32)
+    
+    """
     #going to use 1-based indexing (as tought in the class)
     #so adding some random matrix in 0-th index
     w = [np.random.rand(1,1)]
@@ -334,6 +360,18 @@ class Classification:
      
 
   def calc_accuracy(self, x_test, y_test, return_predicted_distribution = False):
+    """
+    Calculates accuracy for x_test and y_test if return_predicted_distrubution = False
+    if return_predicted_distrubution == True:
+      Returns predicted distributions
+
+    Params:
+    ------
+    x_test : ndarray of data 
+    y_test : ndarray of labels
+    return_predicted_distribution: bool (by default = False)
+
+    """
     _ , h = self.forward_propogation(x_test)
     predicted_distribution = h[-1]
     if(return_predicted_distribution == True):

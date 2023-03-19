@@ -4,8 +4,6 @@ Module containing all the Utility functions that is needed for the neural networ
 
 from enum import Enum
 import numpy as np
-import plotly.figure_factory as ff
-from sklearn.metrics import confusion_matrix
 
 
 class ActivationFunction(Enum):

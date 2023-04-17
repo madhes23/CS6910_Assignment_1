@@ -1,3 +1,8 @@
+<a href="https://wandb.ai/madhes23/CS6910_Assignment-1/reports/Report-Assignment-1-CS6910---VmlldzozODI2Njkz" target="_blank">
+  <img src="https://assets.website-files.com/5ac6b7f2924c656f2b13a88c/60de02f3843862bd5d482a51_weights-and-biases-logo-black.svg" alt="WandB logo" width="100">
+  View report
+</a>
+
 # Exploring Deep learning
 Learning the basic algorithms in feed forward neural network (while doing academic projects)
 
